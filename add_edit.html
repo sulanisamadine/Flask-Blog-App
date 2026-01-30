@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head><title>{{ action }} Blog</title></head>
+<body>
+    <h2>{{ action }} Blog</h2>
+    <form method="post">
+        <p>Title: <input type="text" name="title" value="{{ blog[1] if blog else '' }}" required></p>
+        <p>Content:<br><textarea name="content" rows="6" cols="50" required>{{ blog[2] if blog else '' }}</textarea></p>
+        <p><input type="submit" value="{{ action }}"></p>
+    </form>
+</body>
+</html>

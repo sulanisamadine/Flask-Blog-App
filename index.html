@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+    <title>Blog Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to the Blog!</h1>
+
+    <p><a href="{{ url_for('logout') }}">Logout</a></p>
+    <p><a href="{{ url_for('add') }}">Add New Post</a></p>
+
+    {% if posts %}
+        <ul>
+            {% for post in posts %}
+                <li>
+                    <h2>{{ post[1] }}</h2>
+                    <p>{{ post[2] }}</p>
+                    <a href="{{ url_for('edit', id=post[0]) }}">Edit</a> |
+                    <a href="{{ url_for('delete', id=post[0]) }}">Delete</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No blog posts found.</p>
+    {% endif %}
+</body>
+</html>
